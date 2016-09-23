@@ -150,6 +150,7 @@ public final class JsonFormat {
                 case '\n':
                 case ' ':
                 case '\t':
+                case '\r':
                     if (!charInString) {
                         break;
                     } else {

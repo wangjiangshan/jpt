@@ -8,7 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.UUID;
 
-import static com.sun.awt.AWTUtilities.setWindowOpacity;
+//import static com.sun.awt.AWTUtilities.setWindowOpacity;
 import static org.sauceggplant.jpt.sys.GLOBAL.*;
 
 /**
@@ -36,8 +36,8 @@ public abstract class AbstractComponentFrame extends JFrame implements IERDCompo
         initComponents();
         this.setTitle(getComponentTitleByKey(getComponentKey()));
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setUndecorated(true);
-        setWindowOpacity(this, 0.8f);
+//        this.setUndecorated(true);
+//        setWindowOpacity(this, 0.8f);
         this.setSize(new Dimension(Integer.parseInt(getSystemConfigByKey("DEFAULT_FRAME_WIDTH")),
                 Integer.parseInt(getSystemConfigByKey("DEFAULT_FRAME_HEIGHT"))));
         this.setVisible(true);

@@ -102,9 +102,10 @@ public class JPTToolsPanel extends AbstractComponentPanel {
                     String json = viewPanel.getContentTextPane().getText();
                     getLogger().info("####Json Content:\n" + json);
                     String jsonPath = textField.getText();
-                    int index = 0;
+                    int index = -1;
                     try {
                         index = Integer.parseInt(jsonPath.substring(jsonPath.lastIndexOf(".") + 1, jsonPath.length()));
+                        jsonPath = jsonPath.substring(0,jsonPath.lastIndexOf("."));
                     } catch (Exception e2) {
                         getLogger().trace("####Last element cannot parse integer.");
                     }
@@ -112,7 +113,11 @@ public class JPTToolsPanel extends AbstractComponentPanel {
                     Object result = JsonPath.read(json, jsonPath);
                     String resultView = "";
                     if (result instanceof JSONArray) {
-                        resultView = String.valueOf(((ArrayList) result).get(index));
+                        if(index==-1){
+                            resultView = String.valueOf(result);
+                        }else{
+                            resultView = String.valueOf(((ArrayList) result).get(index));
+                        }
                     } else {
                         resultView = String.valueOf(result);
                     }
